@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidor Inútil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        p {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>💩 El Servidor Más Inútil del Mundo</h1>
+    <button onclick="getUselessData()">Obtener un dato inútil</button>
+    <p id="useless-message"></p>
+
+    <script>
+        function getUselessData() {
+            fetch('/useless')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('useless-message').innerText = data.message;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
